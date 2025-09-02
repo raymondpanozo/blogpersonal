@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raymond Jesus Panozo Crespo — Currículum y Blog</title>
+  <meta name="description" content="Currículum y blog de Raymond Panozo Crespo — técnico superior en sistemas informáticos. Formación, proyectos y artículos sobre desarrollo y buenas prácticas." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Raymond Jesus Panozo Crespo",
+    "jobTitle": "Técnico Superior en Sistemas Informáticos",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Oruro",
+      "addressCountry": "BO"
+    },
+    "email": "mailto:raymord.panazo@uab.edu.bo",
+    "image": "perfil.png",
+    "url": "https://github.com/raymondpanozo/blogpersonal",
+    "knowsAbout": ["C#", "HTML", "CSS", "Sistemas de información"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header role="banner" class="cabecera">
+    <div class="avatar">
+      <img src="perfil.png" alt="Retrato de Raymond Panozo Crespo" width="120" height="120" />
+    </div>
+    <div class="datos">
+      <h1>Raymond Jesus Panozo Crespo</h1>
+      <p class="rol">Técnico Superior en Sistemas Informáticos</p>
+      <p class="contacto">
+        <a href="mailto:raymord.panazo@uab.edu.bo">Escríbeme por correo</a> · Oruro, Bolivia
+      </p>
+    </div>
+  </header>
+
+  <nav aria-label="Navegación principal">
+    <ul>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#articulos">Artículos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido">
+    <section id="sobre-mi" aria-labelledby="sobremi-titulo">
+      <h2 id="sobremi-titulo">Sobre mí</h2>
+      <p>
+        Soy un técnico superior en sistemas informáticos apasionado por el desarrollo local, privado y de escritorio, y por crear soluciones digitales con impacto. Me motiva aprender tecnologías nuevas y participar en proyectos que generen valor real para mi aprendizaje.
+      </p>
+    </section>
+
+    <aside aria-label="Datos destacados">
+      <h2>Perfil breve</h2>
+      <ul>
+        <li>Disponibilidad: Inmediata para el estudio de la facultad</li>
+        <li>Preferencia: Desarrollo de sistemas de información local y tambien en proceso (web)</li>
+        <li>Idiomas: español (nativo)</li>
+      </ul>
+    </aside>
+
+    <section id="formacion" aria-labelledby="formacion-titulo">
+      <h2 id="formacion-titulo">Formación académica</h2>
+      <ul>
+        <li><strong>Técnico Superior en Sistemas Informáticos</strong> — Instituto Técnico Superior Jesús María (2018–2022)</li>
+      </ul>
+    </section>
+
+    <section id="proyectos" aria-labelledby="proyectos-titulo">
+      <h2 id="proyectos-titulo">Experiencia y proyectos</h2>
+      <article aria-labelledby="portafolio-titulo">
+        <h3 id="portafolio-titulo">Sistema de información para control de compras y distribución</h3>
+        <p>Proyecto de grado: sistema para la Caja Nacional de Salud (CNS) regional Oruro para el control de compra, almacenaje y distribución de productos de limpieza (2022).</p>
+        <p><a href="/blogpersonal/index.html">Ver detalles del proyecto</a></p>
+      </article>
+      <article aria-labelledby="pasantias-titulo">
+        <h3 id="pasantias-titulo">Pasantías — Constructora MOLYREYS</h3>
+        <p>Apoyo en procesos internos y digitalización de información (2022).</p>
+        <p><a href="/blogpersonal/index.html">Leer más sobre esta experiencia</a></p>
+      </article>
+    </section>
+
+    <section id="habilidades" aria-labelledby="habilidades-titulo">
+      <h2 id="habilidades-titulo">Habilidades</h2>
+      <ul class="skills">
+        <li>C# — nivel intermedio</li>
+        <li>HTML — nivel básico</li>
+        <li>CSS — nivel básico</li>
+      </ul>
+    </section>
+
+    <section id="articulos" aria-labelledby="articulos-titulo">
+      <h2 id="articulos-titulo">Artículos</h2>
+      <article itemscope itemtype="https://schema.org/Article" aria-labelledby="post-1-titulo">
+        <header>
+          <h3 id="post-1-titulo" itemprop="headline">Cómo mejoré el rendimiento de un sistema de inventarios</h3>
+          <p><time datetime="2025-05-12" itemprop="datePublished">12 mayo 2025</time></p>
+        </header>
+        <p itemprop="description">Buenas prácticas y aprendizajes al optimizar consultas y estructura de datos.</p>
+        <a href="/blogpersonal/index.html">Leer artículo</a>
+        <meta itemprop="author" content="Raymond Jesus Panozo Crespo" />
+      </article>
+    </section>
+
+    <section id="contacto" aria-labelledby="contacto-titulo">
+      <h2 id="contacto-titulo">Contacto</h2>
+      <form action="/blogpersonal/index.html" method="post" aria-describedby="ayuda-contacto">
+        <p id="ayuda-contacto">Todos los campos marcados con * son obligatorios.</p>
+        <div>
+          <label for="nombre">Nombre *</label>
+          <input id="nombre" name="nombre" type="text" required autocomplete="name" />
+        </div>
+        <div>
+          <label for="email">Correo electrónico *</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div>
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 Raymond Jesus Panozo Crespo</p>
+    <nav aria-label="Enlaces legales y sociales">
+      <ul>
+        <li><a href="/blogpersonal/index.html">Accesibilidad</a></li>
+        <li><a href="/blogpersonal/index.html">Política de privacidad</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <figure>
+    <img src="perfil.png" alt="Pantalla del sistema de control de compras en funcionamiento" loading="lazy" width="120" height="80" />
+    <figcaption>Vista del perfil.</figcaption>
+  </figure>
+</body>
+</html>
