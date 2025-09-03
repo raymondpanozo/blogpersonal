@@ -15,21 +15,18 @@ $color-accent-dark: #6aa6ff;
 $color-surface-dark: #1e1e1e;
 $focus-color-dark: #ffd54f;
 
-$shadow-small: 0 2px 5px rgba(0, 0, 0, 0.05);
-$shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.1);
+$font-base: 'Bookman Old Style', Helvetica, sans-serif;
+$radius: 12px;
+$shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+$shadow-md: 0 4px 10px rgba(0,0,0,0.1);
+$transition: all 0.2s ease-in-out;
 
 
-@mixin dark-mode {
-  @media (prefers-color-scheme: dark) {
-    @content;
-  }
-}
-
-@mixin respond($breakpoint) {
-  @if $breakpoint == sm {
+@mixin respond($break) {
+  @if $break == tablet {
     @media (min-width: 600px) { @content; }
   }
-  @if $breakpoint == lg {
+  @if $break == desktop {
     @media (min-width: 1024px) { @content; }
   }
 }
@@ -42,28 +39,40 @@ $shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 
-body {
-  font-family: "Arial", Helvetica, sans-serif;
-  background-color: #f0f0f0;
-  color: $color-text-light;
-  line-height: 1.6;
-  padding: 20px;
+:root {
+  --color-bg: #{$color-bg-light};
+  --color-text: #{$color-text-light};
+  --color-primary: #{$color-primary-light};
+  --color-secondary: #{$color-secondary-light};
+  --color-accent: #{$color-accent-light};
+  --color-surface: #{$color-surface-light};
+  --focus-color: #{$focus-color-light};
+}
 
-  @include dark-mode {
-    background-color: $color-bg-dark;
-    color: $color-text-dark;
-  }
-
-  @include respond(lg) {
-    max-width: 1000px;
-    margin: auto;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #{$color-bg-dark};
+    --color-text: #{$color-text-dark};
+    --color-primary: #{$color-primary-dark};
+    --color-secondary: #{$color-secondary-dark};
+    --color-accent: #{$color-accent-dark};
+    --color-surface: #{$color-surface-dark};
+    --focus-color: #{$focus-color-dark};
   }
 }
 
+body {
+  font-family: $font-base;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  padding: 20px;
+}
+
 a {
-  color: $color-accent-light;
+  color: var(--color-accent);
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  transition: $transition;
 
   &:hover,
   &:focus {
@@ -71,26 +80,15 @@ a {
   }
 
   &:focus-visible {
-    outline: 3px solid $focus-color-light;
+    outline: 3px solid var(--focus-color);
     outline-offset: 2px;
-  }
-
-  @include dark-mode {
-    color: $color-accent-dark;
-    &:focus-visible {
-      outline-color: $focus-color-dark;
-    }
   }
 }
 
 h1, h2, h3 {
-  color: $color-primary-light;
+  color: var(--color-primary);
   line-height: 1.3;
-  margin-bottom: 0.5rem;
-
-  @include dark-mode {
-    color: $color-primary-dark;
-  }
+  margin-bottom: .5rem;
 }
 
 ul {
@@ -103,52 +101,33 @@ ul {
   display: flex;
   align-items: center;
   gap: 20px;
-  background-color: $color-surface-light;
+  background-color: var(--color-surface);
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: $shadow-medium;
+  border-radius: $radius;
+  box-shadow: $shadow-md;
   margin-bottom: 20px;
   flex-direction: column;
   text-align: center;
 
-  @include dark-mode {
-    background-color: $color-surface-dark;
-  }
-
-  &__avatar img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid $color-primary-light;
-
-    @include dark-mode {
-      border-color: $color-primary-dark;
+  &__avatar {
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--color-primary);
     }
-  }
-
-  @include respond(sm) {
-    flex-direction: row;
-    text-align: left;
   }
 }
 
 .rol {
   font-size: 1.2rem;
   font-weight: bold;
-  color: $color-secondary-light;
-
-  @include dark-mode {
-    color: $color-secondary-dark;
-  }
+  color: var(--color-secondary);
 }
 
 .contacto {
-  color: $color-secondary-light;
+  color: var(--color-secondary);
   font-size: 0.9rem;
-
-  @include dark-mode {
-    color: $color-secondary-dark;
-  }
 }
 
 
@@ -162,34 +141,25 @@ nav {
   }
 
   a {
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-    transition: all 0.2s ease-in-out;
+    padding: .5rem 1rem;
+    border-radius: $radius;
+    transition: $transition;
 
     &:hover,
     &:focus {
-      background: $color-accent-light;
+      background: var(--color-accent);
       color: #fff;
-
-      @include dark-mode {
-        background: $color-accent-dark;
-      }
     }
   }
 }
 
 
-section,
-aside {
-  background: $color-surface-light;
+section, aside {
+  background: var(--color-surface);
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: $shadow-small;
-
-  @include dark-mode {
-    background: $color-surface-dark;
-  }
+  border-radius: $radius;
+  box-shadow: $shadow-sm;
 }
 
 .skills {
@@ -202,16 +172,12 @@ aside {
     padding: 8px 12px;
     border-radius: 8px;
     font-weight: bold;
-    color: $color-primary-light;
-    transition: all 0.2s ease-in-out;
+    color: var(--color-primary);
+    transition: $transition;
 
     &:hover {
-      background: $color-accent-light;
+      background: var(--color-accent);
       color: #fff;
-
-      @include dark-mode {
-        background: $color-accent-dark;
-      }
     }
   }
 }
@@ -226,42 +192,28 @@ form {
     font-weight: bold;
   }
 
-  input,
-  textarea,
-  button {
+  input, textarea, button {
     font: inherit;
-    padding: 0.5rem;
-    border: 1px solid $color-secondary-light;
-    border-radius: 12px;
-
-    @include dark-mode {
-      border-color: $color-secondary-dark;
-    }
+    padding: .5rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: $radius;
   }
 
   button {
-    background: $color-primary-light;
+    background: var(--color-primary);
     color: #fff;
     font-weight: bold;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: $transition;
 
     &:hover,
     &:focus {
-      background: $color-accent-light;
-
-      @include dark-mode {
-        background: $color-accent-dark;
-      }
+      background: var(--color-accent);
     }
 
     &:active {
       transform: scale(0.97);
-    }
-
-    @include dark-mode {
-      background: $color-primary-dark;
     }
   }
 }
@@ -271,17 +223,13 @@ footer {
   text-align: center;
   margin-top: 20px;
   font-size: 0.9rem;
-  color: $color-secondary-light;
-
-  @include dark-mode {
-    color: $color-secondary-dark;
-  }
+  color: var(--color-secondary);
 
   nav ul {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin-top: 0.5rem;
+    margin-top: .5rem;
   }
 }
 
@@ -298,21 +246,33 @@ footer {
     position: static;
     width: auto;
     height: auto;
-    padding: 0.5rem 1rem;
+    padding: .5rem 1rem;
     display: inline-block;
-    background: $focus-color-light;
+    background: var(--focus-color);
     color: #000;
     font-weight: 700;
-    border-radius: 0.5rem;
-
-    @include dark-mode {
-      background: $focus-color-dark;
-    }
+    border-radius: .5rem;
   }
 }
 
 
-@include respond(lg) {
+@include respond(tablet) {
+  .cabecera {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+}
+
+@include respond(desktop) {
+  body {
+    max-width: 1000px;
+    margin: auto;
+  }
+
   main {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -323,23 +283,4 @@ footer {
     grid-column: 2;
     grid-row: 1 / span 2;
   }
-}
-
-
-#video-fondo {
-  position: fixed;   
-  top: 0;
-  left: 0;
-  width: 100%;       
-  height: 100%;
-  object-fit: cover; 
-  z-index: -1;       
-}
-
-.contenido {
-  position: relative;
-  z-index: 1;        
-  color: white;      
-  text-align: center;
-  padding: 50px;
 }
