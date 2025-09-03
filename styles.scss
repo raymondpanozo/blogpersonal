@@ -1,6 +1,4 @@
-// ------------------------
-// Variables
-// ------------------------
+
 $color-bg-light: #ffffff;
 $color-text-light: #111111;
 $color-primary-light: #1a3d7c;
@@ -20,9 +18,7 @@ $focus-color-dark: #ffd54f;
 $shadow-small: 0 2px 5px rgba(0, 0, 0, 0.05);
 $shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-// ------------------------
-// Mixins
-// ------------------------
+
 @mixin dark-mode {
   @media (prefers-color-scheme: dark) {
     @content;
@@ -38,18 +34,14 @@ $shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 }
 
-// ------------------------
-// Global Reset
-// ------------------------
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-// ------------------------
-// Base
-// ------------------------
+
 body {
   font-family: "Arial", Helvetica, sans-serif;
   background-color: #f0f0f0;
@@ -106,9 +98,7 @@ ul {
   padding-left: 0;
 }
 
-// ------------------------
-// Cabecera
-// ------------------------
+
 .cabecera {
   display: flex;
   align-items: center;
@@ -161,9 +151,7 @@ ul {
   }
 }
 
-// ------------------------
-// Navegación
-// ------------------------
+
 nav {
   ul {
     display: flex;
@@ -190,9 +178,7 @@ nav {
   }
 }
 
-// ------------------------
-// Secciones
-// ------------------------
+
 section,
 aside {
   background: $color-surface-light;
@@ -230,9 +216,7 @@ aside {
   }
 }
 
-// ------------------------
-// Formularios
-// ------------------------
+
 form {
   display: flex;
   flex-direction: column;
@@ -282,9 +266,7 @@ form {
   }
 }
 
-// ------------------------
-// Footer
-// ------------------------
+
 footer {
   text-align: center;
   margin-top: 20px;
@@ -303,9 +285,7 @@ footer {
   }
 }
 
-// ------------------------
-// Skip Link
-// ------------------------
+
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -331,9 +311,7 @@ footer {
   }
 }
 
-// ------------------------
-// Grid en desktop
-// ------------------------
+
 @include respond(lg) {
   main {
     display: grid;
@@ -347,9 +325,7 @@ footer {
   }
 }
 
-// ------------------------
-// Video de fondo
-// ------------------------
+
 #video-fondo {
   position: fixed;   
   top: 0;
