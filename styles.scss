@@ -1,0 +1,369 @@
+// ------------------------
+// Variables
+// ------------------------
+$color-bg-light: #ffffff;
+$color-text-light: #111111;
+$color-primary-light: #1a3d7c;
+$color-secondary-light: #444444;
+$color-accent-light: #0a58ca;
+$color-surface-light: #f5f5f5;
+$focus-color-light: #ffab00;
+
+$color-bg-dark: #0b0b0b;
+$color-text-dark: #f3f3f3;
+$color-primary-dark: #6aa6ff;
+$color-secondary-dark: #aaaaaa;
+$color-accent-dark: #6aa6ff;
+$color-surface-dark: #1e1e1e;
+$focus-color-dark: #ffd54f;
+
+$shadow-small: 0 2px 5px rgba(0, 0, 0, 0.05);
+$shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+// ------------------------
+// Mixins
+// ------------------------
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 600px) { @content; }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: 1024px) { @content; }
+  }
+}
+
+// ------------------------
+// Global Reset
+// ------------------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// ------------------------
+// Base
+// ------------------------
+body {
+  font-family: "Arial", Helvetica, sans-serif;
+  background-color: #f0f0f0;
+  color: $color-text-light;
+  line-height: 1.6;
+  padding: 20px;
+
+  @include dark-mode {
+    background-color: $color-bg-dark;
+    color: $color-text-dark;
+  }
+
+  @include respond(lg) {
+    max-width: 1000px;
+    margin: auto;
+  }
+}
+
+a {
+  color: $color-accent-light;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $focus-color-light;
+    outline-offset: 2px;
+  }
+
+  @include dark-mode {
+    color: $color-accent-dark;
+    &:focus-visible {
+      outline-color: $focus-color-dark;
+    }
+  }
+}
+
+h1, h2, h3 {
+  color: $color-primary-light;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+
+  @include dark-mode {
+    color: $color-primary-dark;
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+// ------------------------
+// Cabecera
+// ------------------------
+.cabecera {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: $color-surface-light;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: $shadow-medium;
+  margin-bottom: 20px;
+  flex-direction: column;
+  text-align: center;
+
+  @include dark-mode {
+    background-color: $color-surface-dark;
+  }
+
+  &__avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid $color-primary-light;
+
+    @include dark-mode {
+      border-color: $color-primary-dark;
+    }
+  }
+
+  @include respond(sm) {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.rol {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $color-secondary-light;
+
+  @include dark-mode {
+    color: $color-secondary-dark;
+  }
+}
+
+.contacto {
+  color: $color-secondary-light;
+  font-size: 0.9rem;
+
+  @include dark-mode {
+    color: $color-secondary-dark;
+  }
+}
+
+// ------------------------
+// Navegación
+// ------------------------
+nav {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  a {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover,
+    &:focus {
+      background: $color-accent-light;
+      color: #fff;
+
+      @include dark-mode {
+        background: $color-accent-dark;
+      }
+    }
+  }
+}
+
+// ------------------------
+// Secciones
+// ------------------------
+section,
+aside {
+  background: $color-surface-light;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: $shadow-small;
+
+  @include dark-mode {
+    background: $color-surface-dark;
+  }
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  li {
+    background: #e0e8ff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: $color-primary-light;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: $color-accent-light;
+      color: #fff;
+
+      @include dark-mode {
+        background: $color-accent-dark;
+      }
+    }
+  }
+}
+
+// ------------------------
+// Formularios
+// ------------------------
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  label {
+    font-weight: bold;
+  }
+
+  input,
+  textarea,
+  button {
+    font: inherit;
+    padding: 0.5rem;
+    border: 1px solid $color-secondary-light;
+    border-radius: 12px;
+
+    @include dark-mode {
+      border-color: $color-secondary-dark;
+    }
+  }
+
+  button {
+    background: $color-primary-light;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover,
+    &:focus {
+      background: $color-accent-light;
+
+      @include dark-mode {
+        background: $color-accent-dark;
+      }
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    @include dark-mode {
+      background: $color-primary-dark;
+    }
+  }
+}
+
+// ------------------------
+// Footer
+// ------------------------
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: $color-secondary-light;
+
+  @include dark-mode {
+    color: $color-secondary-dark;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
+
+// ------------------------
+// Skip Link
+// ------------------------
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    background: $focus-color-light;
+    color: #000;
+    font-weight: 700;
+    border-radius: 0.5rem;
+
+    @include dark-mode {
+      background: $focus-color-dark;
+    }
+  }
+}
+
+// ------------------------
+// Grid en desktop
+// ------------------------
+@include respond(lg) {
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+
+  aside {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+// ------------------------
+// Video de fondo
+// ------------------------
+#video-fondo {
+  position: fixed;   
+  top: 0;
+  left: 0;
+  width: 100%;       
+  height: 100%;
+  object-fit: cover; 
+  z-index: -1;       
+}
+
+.contenido {
+  position: relative;
+  z-index: 1;        
+  color: white;      
+  text-align: center;
+  padding: 50px;
+}
