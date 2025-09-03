@@ -1,22 +1,12 @@
 @charset "UTF-8";
-/* ==============================
-   Variables
-   ============================== */
-/* ==============================
-   Mixins
-   ============================== */
-/* ==============================
-   Reset
-   ============================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ==============================
-   Base
-   ============================== */
+
 :root {
   --color-bg: #ffffff;
   --color-text: #111111;
@@ -70,9 +60,7 @@ ul {
   padding-left: 0;
 }
 
-/* ==============================
-   Cabecera
-   ============================== */
+
 .cabecera {
   display: flex;
   align-items: center;
@@ -103,9 +91,7 @@ ul {
   font-size: 0.9rem;
 }
 
-/* ==============================
-   Navegación
-   ============================== */
+
 nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -123,9 +109,7 @@ nav a:hover, nav a:focus {
   color: #fff;
 }
 
-/* ==============================
-   Secciones y aside
-   ============================== */
+
 section, aside {
   background: var(--color-surface);
   padding: 20px;
@@ -152,9 +136,7 @@ section, aside {
   color: #fff;
 }
 
-/* ==============================
-   Formulario
-   ============================== */
+
 form {
   display: flex;
   flex-direction: column;
@@ -184,9 +166,7 @@ form button:active {
   transform: scale(0.97);
 }
 
-/* ==============================
-   Footer
-   ============================== */
+
 footer {
   text-align: center;
   margin-top: 20px;
@@ -200,9 +180,7 @@ footer nav ul {
   margin-top: 0.5rem;
 }
 
-/* ==============================
-   Skip link
-   ============================== */
+
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -223,9 +201,7 @@ footer nav ul {
   border-radius: 0.5rem;
 }
 
-/* ==============================
-   Media Queries
-   ============================== */
+
 @media (min-width: 600px) {
   .cabecera {
     flex-direction: row;
@@ -251,24 +227,24 @@ footer nav ul {
   }
 }
 
-/* Video de fondo */
+
 #video-fondo {
-  position: fixed;   /* Queda fijo en la pantalla */
+  position: fixed;   
   top: 0;
   left: 0;
-  width: 100%;       /* Ocupa toda la pantalla */
+  width: 100%;       
   height: 100%;
-  object-fit: cover; /* Ajusta el video sin deformarlo */
-  z-index: -1;       /* Envía el video detrás del contenido */
+  object-fit: cover; 
+  z-index: -1;       
 }
 
-/* Contenido encima del video */
+
 .contenido {
   position: relative;
-  z-index: 1;        /* Asegura que esté encima del video */
-  color: white;      /* Para que contraste sobre el video */
+  z-index: 1;        
+  color: white;      
   text-align: center;
   padding: 50px;
 }
 
-/*# sourceMappingURL=styles.css.map */
+
