@@ -1,9 +1,22 @@
+@charset "UTF-8";
+/* ==============================
+   Variables
+   ============================== */
+/* ==============================
+   Mixins
+   ============================== */
+/* ==============================
+   Reset
+   ============================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==============================
+   Base
+   ============================== */
 :root {
   --color-bg: #ffffff;
   --color-text: #111111;
@@ -25,10 +38,9 @@
     --focus-color: #ffd54f;
   }
 }
-
 body {
-  font-family: 'Bookman Old Style', Helvetica, sans-serif;
-  background-color: var(--color-bg);
+  font-family: "Arial", Helvetica, sans-serif;
+  background-color: #f0f0f0;
   color: var(--color-text);
   line-height: 1.6;
   padding: 20px;
@@ -37,18 +49,12 @@ body {
 a {
   color: var(--color-accent);
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
-
-a:hover,
-a:focus {
+a:hover, a:focus {
   text-decoration: underline;
 }
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
+a:focus-visible {
   outline: 3px solid var(--focus-color);
   outline-offset: 2px;
 }
@@ -56,7 +62,7 @@ select:focus-visible {
 h1, h2, h3 {
   color: var(--color-primary);
   line-height: 1.3;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 ul {
@@ -64,6 +70,9 @@ ul {
   padding-left: 0;
 }
 
+/* ==============================
+   Cabecera
+   ============================== */
 .cabecera {
   display: flex;
   align-items: center;
@@ -71,11 +80,12 @@ ul {
   background-color: var(--color-surface);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  flex-direction: column;
+  text-align: center;
 }
-
-.avatar img {
+.cabecera__avatar img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -93,12 +103,35 @@ ul {
   font-size: 0.9rem;
 }
 
+/* ==============================
+   Navegación
+   ============================== */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+nav a {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+nav a:hover, nav a:focus {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ==============================
+   Secciones y aside
+   ============================== */
 section, aside {
   background: var(--color-surface);
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .skills {
@@ -106,22 +139,70 @@ section, aside {
   flex-wrap: wrap;
   gap: 10px;
 }
-
 .skills li {
   background: #e0e8ff;
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: bold;
   color: var(--color-primary);
+  transition: all 0.2s ease-in-out;
+}
+.skills li:hover {
+  background: var(--color-accent);
+  color: #fff;
 }
 
+/* ==============================
+   Formulario
+   ============================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form label {
+  font-weight: bold;
+}
+form input, form textarea, form button {
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid var(--color-secondary);
+  border-radius: 12px;
+}
+form button {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+form button:hover, form button:focus {
+  background: var(--color-accent);
+}
+form button:active {
+  transform: scale(0.97);
+}
+
+/* ==============================
+   Footer
+   ============================== */
 footer {
   text-align: center;
   margin-top: 20px;
   font-size: 0.9rem;
   color: var(--color-secondary);
 }
+footer nav ul {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
 
+/* ==============================
+   Skip link
+   ============================== */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -130,15 +211,64 @@ footer {
   height: 1px;
   overflow: hidden;
 }
-
 .skip-link:focus {
   position: static;
   width: auto;
   height: auto;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   display: inline-block;
   background: var(--focus-color);
   color: #000;
   font-weight: 700;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
+
+/* ==============================
+   Media Queries
+   ============================== */
+@media (min-width: 600px) {
+  .cabecera {
+    flex-direction: row;
+    text-align: left;
+  }
+  nav ul {
+    justify-content: center;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    max-width: 1000px;
+    margin: auto;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+  aside {
+    grid-column: 2;
+    grid-row: 1/span 2;
+  }
+}
+
+/* Video de fondo */
+#video-fondo {
+  position: fixed;   /* Queda fijo en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;       /* Ocupa toda la pantalla */
+  height: 100%;
+  object-fit: cover; /* Ajusta el video sin deformarlo */
+  z-index: -1;       /* Envía el video detrás del contenido */
+}
+
+/* Contenido encima del video */
+.contenido {
+  position: relative;
+  z-index: 1;        /* Asegura que esté encima del video */
+  color: white;      /* Para que contraste sobre el video */
+  text-align: center;
+  padding: 50px;
+}
+
+/*# sourceMappingURL=styles.css.map */
